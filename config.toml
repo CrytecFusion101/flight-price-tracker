@@ -1,0 +1,33 @@
+# Flight price tracker configuration. Unknown keys fail fast (typo protection).
+
+[trip]
+origin = "DEL"
+destination = "DPS"
+adults = 2
+currency = "INR"
+# Outbound: leave 28 Mar (overnight) or 29 Mar; must LAND on 29 Mar.
+outbound_dates = ["2027-03-28", "2027-03-29"]
+outbound_arrive_date = "2027-03-29"
+outbound_ideal_arrive_before_hour = 12   # "ideal" = lands 29 Mar before noon
+return_date = "2027-04-03"
+return_depart_after_hour = 12            # prefer afternoon departures from Bali
+max_stops = 1                            # non-stop is always queried separately too
+stop_tracking_after = "2027-04-03"
+# UTC offsets (hours) used to compute real elapsed flight time.
+tz_offsets = { DEL = 5.5, DPS = 8.0 }
+
+[alerts]
+# A change is alert-worthy only if it beats BOTH thresholds.
+min_change_inr = 1000
+min_change_pct = 1.5
+# Optional: alert when the best trip (2 pax, round trip) is at/below this. 0 = off.
+target_price = 90000
+digest_hour_utc = 3          # daily digest at ~08:30-09:30 IST
+failure_alert_after = 3      # consecutive failed runs before a "tracker broken" alert
+watch_series = ["best_trip", "rt_nonstop_fit", "combo_nonstop", "out_nonstop_fit", "ret_nonstop_fit"]
+
+[sanity]
+# Totals for all passengers. Anything outside is treated as a parse error.
+min_price = 8000
+max_price = 600000
+suspicious_change_pct = 40   # flagged as "unverified" in alerts

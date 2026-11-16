@@ -1,0 +1,22 @@
+[project]
+name = "flight-tracker"
+version = "0.1.0"
+description = "DEL<->DPS flight price tracker with alerts and dashboard"
+requires-python = ">=3.12"
+dependencies = [
+    "fast-flights>=3.1.0",
+    "typing-extensions>=4.16.0",
+]
+
+[project.scripts]
+flight-tracker = "flight_tracker.main:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]
