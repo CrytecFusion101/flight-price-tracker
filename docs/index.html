@@ -49,11 +49,16 @@ a{color:var(--s1)}.seg{display:flex;gap:6px;margin:0 0 10px}
   <p class="foot" style="margin-top:8px">Step lines = observed fares (total for all passengers). Dashed = naive linear trend of the best trip over the last 7 days, projected 14 days ahead — not a forecast you should bet on. Grey dashed = your target.</p>
 </div>
 
-<h2>Current prices by series</h2>
-<div class="card tablewrap"><table id="seriesTable"></table></div>
+<h2>Round-trip journeys (outbound + return)</h2>
+<div class="card">
+  <label class="foot" style="display:flex;gap:6px;align-items:center;margin:0 0 8px"><input type="checkbox" id="nsOnly" checked> Non-stop only</label>
+  <div class="tablewrap"><table id="jTable"></table></div>
+  <p class="foot" style="margin-top:8px">Only flights that fit your times are shown: outbound lands 29 Mar, return leaves 3 Apr after 12:00, and no airline known to charge for checked bags. "2 tickets" = two separate one-way bookings. "Round-trip ticket" = one booking, whose return flight you pick on Google Flights (the price shown is Google's cheapest return with that outbound).</p>
+</div>
 
-<h2>All options seen in the latest run</h2>
-<div class="card tablewrap"><table id="optTable"></table></div>
+<details style="margin-top:28px"><summary style="cursor:pointer;font-weight:600">All individual options seen in the latest run</summary>
+<div class="card tablewrap" style="margin-top:10px"><table id="optTable"></table></div>
+</details>
 
 <p class="foot" id="health"></p>
 </main>
@@ -61,7 +66,8 @@ a{color:var(--s1)}.seg{display:flex;gap:6px;margin:0 0 10px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 const COLORS = ["--s1", "--s2", "--s3", "--s4"];
-const DEFAULT_SERIES = ["best_trip", "combo_nonstop", "out_nonstop_fit", "ret_nonstop_fit"];
+// Graph shows only full to-and-fro totals (2 pax), never single legs.
+const DEFAULT_SERIES = ["best_trip", "combo_nonstop", "rt_nonstop_fit", "cheapest_any"];
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const inr = n => n == null ? "—" : "₹" + Math.round(n).toLocaleString("en-IN");
 const fmtT = ms => new Date(ms).toLocaleString("en-IN", {day: "numeric", month: "short", hour: "2-digit", minute: "2-digit"});
@@ -101,7 +107,7 @@ function render() {
       best ? `<a href="${esc(best.url)}" target="_blank" rel="noopener">Open in Google Flights ↗</a>` : "");
 
   // chips: color follows the entity (fixed slot by default order); extras use ink
-  const keys = Object.keys(D.labels).filter(k => D.history[k]);
+  const keys = DEFAULT_SERIES.filter(k => D.history[k]);
   document.getElementById("chips").innerHTML = keys.map(k => {
     const slot = DEFAULT_SERIES.indexOf(k);
     const col = slot >= 0 ? `var(${COLORS[slot]})` : "var(--muted)";
@@ -115,9 +121,9 @@ function render() {
     rangeDays = +b.dataset.d; document.querySelectorAll("#range button").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
   });
 
-  document.getElementById("seriesTable").innerHTML = "<tr><th>Series</th><th class=num>Now</th><th class=num>24h Δ</th><th class=num>Low</th><th>Details</th></tr>" +
-    keys.filter(k => D.current[k]).map(k => { const c = changeOver(k, 24);
-      return `<tr><td>${esc(D.labels[k])}</td><td class=num>${inr(D.current[k].price)}</td><td class="num ${c < 0 ? "down" : c > 0 ? "up" : ""}">${c ? (c > 0 ? "+" : "−") + inr(Math.abs(c)) : "—"}</td><td class=num>${inr(D.lows[k])}</td><td>${esc(D.current[k].desc)}</td></tr>`; }).join("");
+  const nsBox = document.getElementById("nsOnly");
+  nsBox.onchange = renderJourneys;
+  renderJourneys();
 
   const kindName = {out: "Outbound", ret: "Return", rt: "Round trip"};
   const bagCls = {yes: "ok", likely: "ok", no: "no"};
@@ -133,6 +139,30 @@ function render() {
     (errs.length ? ` · partial failures: ${esc(errs.join(", "))}` : "") +
     ` · Baggage is an airline-based heuristic — confirm on the booking page. Data: Google Flights.`;
   draw();
+}
+
+// Combine outbound x return options into full journeys, cheapest first.
+function renderJourneys() {
+  const nsOnly = document.getElementById("nsOnly").checked;
+  const ok = o => o.fits && o.bag !== "no" && (!nsOnly || o.nonstop);
+  const outs = D.options.filter(o => o.kind === "out" && ok(o));
+  const rets = D.options.filter(o => o.kind === "ret" && ok(o));
+  const rows = [];
+  for (const a of outs) for (const b of rets) rows.push({total: a.price + b.price, type: "2 tickets", out: a, ret: b});
+  for (const r of D.options.filter(o => o.kind === "rt" && ok(o))) rows.push({total: r.price, type: "Round-trip ticket", out: r, ret: null});
+  rows.sort((x, y) => x.total - y.total);
+  const t = d => new Date(Date.parse(d)).toLocaleString("en-IN", {day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hour12: false});
+  const stops = o => o.nonstop ? "non-stop" : `${o.stops} stop`;
+  const leg = (o, price) => `<b>${price}</b> · ${esc(o.airlines)}<br><span style="color:var(--ink2)">${t(o.dep)} → ${t(o.arr)} · ${stops(o)} · bag: ${o.bag}</span>`;
+  const bestTotal = rows.length ? rows[0].total : null;
+  document.getElementById("jTable").innerHTML = rows.length ?
+    "<tr><th class=num>Total (2 pax)</th><th>Booking</th><th>Outbound DEL → DPS</th><th>Return DPS → DEL</th><th></th></tr>" +
+    rows.slice(0, 15).map(r => `<tr${r.total === bestTotal ? ' style="font-weight:600"' : ""}>
+      <td class=num>${inr(r.total)}</td><td>${r.type}</td>
+      <td style="white-space:normal">${leg(r.out, r.ret ? inr(r.out.price) : "incl.")}</td>
+      <td style="white-space:normal">${r.ret ? leg(r.ret, inr(r.ret.price)) : '<span style="color:var(--ink2)">incl. — choose return on Google Flights</span>'}</td>
+      <td><a href="${esc(r.out.url)}" target="_blank" rel="noopener">out ↗</a>${r.ret ? ` · <a href="${esc(r.ret.url)}" target="_blank" rel="noopener">ret ↗</a>` : ""}</td></tr>`).join("")
+    : '<tr><td>No journeys fit your filters in the latest run' + (nsOnly ? " — try unticking “Non-stop only”." : ".") + "</td></tr>";
 }
 
 function trend(points) {
