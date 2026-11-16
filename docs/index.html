@@ -68,7 +68,12 @@ const fmtT = ms => new Date(ms).toLocaleString("en-IN", {day: "numeric", month: 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 let D, chart, rangeDays = 0, active = [...DEFAULT_SERIES];
 
-fetch("data.json", {cache: "no-store"}).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+// Live data comes straight from the public repo (updated by every tracker run), so the
+// hosted page never needs a redeploy. Falls back to the bundled copy (local preview / outage).
+const LIVE = "https://raw.githubusercontent.com/CrytecFusion101/flight-price-tracker/main/docs/data.json";
+const getJson = u => fetch(u, {cache: "no-store"}).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+(isLocal ? getJson("data.json") : getJson(LIVE).catch(() => getJson("data.json")))
   .then(d => { D = d; render(); })
   .catch(e => { document.getElementById("sub").textContent = "No data yet (" + e.message + "). The tracker hasn't published a run."; });
 

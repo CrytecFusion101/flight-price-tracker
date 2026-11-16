@@ -2,9 +2,9 @@
 
 Watches Google Flights fares for **2 adults, economy**, Delhi → Denpasar on **28 Mar 2027 (landing 29 Mar) or 29 Mar 2027**, returning **3 Apr 2027** (afternoon departure preferred). Non-stop and checked-bag-included fares are preferred.
 
-- **Every hour** a GitHub Actions job runs 8 queries (non-stop + ≤1-stop one-ways each way, plus non-stop round trips).
+- **Every 30 min** a GitHub Actions job runs 8 queries (non-stop + ≤1-stop one-ways each way, plus non-stop round trips).
 - **History** is appended to `data/series.csv` (tracked series) and `data/observations/YYYY-MM.csv` (top-3 raw options per query).
-- **Dashboard** (`docs/index.html`, hosted on Vercel, redeployed on every data commit): price history, a naive 7-day trend projection, all-time lows, target, and every current option with fit and baggage flags.
+- **Dashboard** (`docs/index.html`, hosted on Vercel; it loads live data from this repo, so it never needs a redeploy): price history, a naive 7-day trend projection, all-time lows, target, and every current option with fit and baggage flags.
 - **Push alerts** via [ntfy](https://ntfy.sh) (and optionally Telegram) when a watched series drops, rises, hits a new low, or reaches `target_price`. You also get a daily digest and a "tracker broken" alert after 3 failed runs in a row.
 
 ## Tracked series (totals for 2 passengers)
