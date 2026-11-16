@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 from datetime import UTC, date, datetime
 
@@ -63,6 +64,11 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
     trusted = {k: v for k, v in series.items() if not (_deps(k) & failed_kinds)}
     first_run = not state.get("last")
     events = detect_changes(trusted, state, cfg)
+    prev_last = state.get("last", {})
+    changed = any(prev_last.get(k) != v["price"] for k, v in trusted.items())
+    if gh_out := os.environ.get("GITHUB_OUTPUT"):  # lets CI redeploy the dashboard only when prices moved
+        with open(gh_out, "a", encoding="utf-8") as f:
+            f.write(f"changed={'true' if changed else 'false'}\n")
     update_state_prices(trusted, state)
 
     best = series.get("best_trip")

@@ -17,6 +17,10 @@ jobs:
   track:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: team_l7uZ0dKLNRTVighoF1BXVZie
+      VERCEL_PROJECT_ID: prj_v6TGn41iuRSYjhgN4jOpcZ984Tol
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v6
@@ -46,3 +50,16 @@ jobs:
             sleep $((i * 5))
           done
           echo "push failed after retries" && exit 1
+      # Redeploy the dashboard when prices moved, or every 6h to refresh "last updated".
+      - name: Deploy dashboard to Vercel
+        if: always() && env.VERCEL_TOKEN != '' && steps.track.outcome == 'success'
+        env:
+          CHANGED: ${{ steps.track.outputs.changed }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          H=$(date -u +%H)
+          if [ "$CHANGED" = "true" ] || [ "$EVENT" = "workflow_dispatch" ] || [ $((10#$H % 6)) -eq 0 ]; then
+            npx --yes vercel@65.16.0 deploy --prod --yes --token "$VERCEL_TOKEN"
+          else
+            echo "no price change; skipping deploy"
+          fi
