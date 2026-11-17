@@ -1,0 +1,1 @@
+This Vercel project proxies https://crytecfusion101.github.io/flight-price-tracker/ (see vercel.json).

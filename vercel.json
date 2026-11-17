@@ -3,8 +3,9 @@
   "framework": null,
   "installCommand": "",
   "buildCommand": "",
-  "outputDirectory": "docs",
-  "headers": [
-    { "source": "/data.json", "headers": [{ "key": "Cache-Control", "value": "no-store, max-age=0" }] }
+  "outputDirectory": "vercel-proxy",
+  "rewrites": [
+    { "source": "/", "destination": "https://crytecfusion101.github.io/flight-price-tracker/" },
+    { "source": "/:path*", "destination": "https://crytecfusion101.github.io/flight-price-tracker/:path*" }
   ]
 }

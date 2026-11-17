@@ -253,7 +253,8 @@ function draw() {
           callbacks: {
             title: i => fmtT(i[0].parsed.x),
             label: i => {
-              const r = i.raw, via = r.src !== undefined ? ` · via ${srcName(r.src)}` : "";
+              // Points saved before labelling have no source: show nothing rather than a placeholder.
+              const r = i.raw, via = r.src ? ` · via ${srcName(r.src)}` : "";
               if (r.missing) return `No price searched (${r.note || "search failed"})${via}`;
               return `${i.dataset.label}: ${inr(r.y)}${via}`;
             },
