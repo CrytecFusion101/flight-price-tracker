@@ -118,9 +118,43 @@ def detect_changes(series: dict, state: dict, cfg) -> list[Event]:
     return events
 
 
+def stabilize(series: dict, trusted: set[str], state: dict) -> dict:
+    """De-flicker series before storing/alerting.
+
+    Every series is a minimum over returned options, so missing/partial results can
+    only make a price look HIGHER, never lower. Therefore:
+      - decreases / unchanged are accepted immediately (a lower fare was really seen);
+      - increases must be seen in 2 consecutive runs before they are accepted;
+      - series whose queries failed this run carry the last accepted value forward.
+    """
+    detail = state.get("last_detail", {})
+    pending = state.setdefault("pending_rise", {})
+    out: dict[str, dict] = {}
+    for k in set(series) | set(detail):
+        cur = series.get(k) if k in trusted else None
+        prev = detail.get(k)
+        if cur is None:
+            if prev:
+                out[k] = prev
+            continue
+        if prev and cur["price"] > prev["price"]:
+            if k in pending:
+                pending.pop(k)
+                out[k] = cur
+            else:
+                pending[k] = cur["price"]
+                out[k] = prev
+        else:
+            pending.pop(k, None)
+            out[k] = cur
+    return out
+
+
 def update_state_prices(series: dict, state: dict) -> None:
     last = state.setdefault("last", {})
     lows = state.setdefault("lows", {})
+    detail = state.setdefault("last_detail", {})
     for k, v in series.items():
         last[k] = v["price"]
+        detail[k] = v
         lows[k] = min(lows.get(k, v["price"]), v["price"])

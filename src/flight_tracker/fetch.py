@@ -179,8 +179,9 @@ def fetch_all(
                 log.warning("%s attempt %d failed: %s", spec.id, attempt, e)
                 if attempt < ATTEMPTS:
                     sleep(5 * attempt**2)
-        if raw is None and isinstance(last, EmptyResult):
-            raw = []  # consistently empty with a real results payload: genuinely no flights
+        # Note: a query that stays empty after retries is an ERROR, not "no flights":
+        # every query on this route normally has results, and treating empty as real
+        # would make prices look higher than they are.
         if raw is None:
             errors[spec.id] = f"{type(last).__name__}: {last}"[:300]
             continue

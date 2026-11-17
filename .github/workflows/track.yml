@@ -18,7 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # Check out the LATEST main (not the SHA at trigger time): a run that waited in the
+      # concurrency queue must build on the data the previous run just committed.
       - uses: actions/checkout@v5
+        with:
+          ref: main
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
@@ -42,7 +46,15 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -q -m "data: $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4; do
-            git pull -q --rebase && git push -q && exit 0
+            if git pull -q --rebase; then
+              git push -q && exit 0
+            else
+              # Data files conflicted with a concurrent run: drop this run's snapshot
+              # rather than corrupt history; the next run starts from the remote state.
+              git rebase --abort || true
+              echo "::warning::data conflict with a concurrent run; this run's snapshot was discarded"
+              exit 0
+            fi
             sleep $((i * 5))
           done
           echo "push failed after retries" && exit 1

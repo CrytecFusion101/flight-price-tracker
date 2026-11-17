@@ -11,7 +11,7 @@ from datetime import UTC, date, datetime
 
 from . import config as config_mod
 from . import notify, store
-from .analyze import SERIES, compute_series, detect_changes, update_state_prices
+from .analyze import SERIES, compute_series, detect_changes, stabilize, update_state_prices
 from .fetch import build_specs, fetch_all
 
 log = logging.getLogger("flight_tracker")
@@ -65,17 +65,18 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
     state["fail_count"] = 0
     state["last_success"] = ts
 
-    series = compute_series(options)
+    raw_series = compute_series(options)
     failed_kinds = {s.kind for s in specs if s.id in errors}
-    trusted = {k: v for k, v in series.items() if not (_deps(k) & failed_kinds)}
+    trusted = {k for k in raw_series if not (_deps(k) & failed_kinds)}
     first_run = not state.get("last")
-    events = detect_changes(trusted, state, cfg)
+    series = stabilize(raw_series, trusted, state)
+    events = detect_changes(series, state, cfg)
     prev_last = state.get("last", {})
-    changed = any(prev_last.get(k) != v["price"] for k, v in trusted.items())
+    changed = any(prev_last.get(k) != v["price"] for k, v in series.items())
     if gh_out := os.environ.get("GITHUB_OUTPUT"):  # lets CI redeploy the dashboard only when prices moved
         with open(gh_out, "a", encoding="utf-8") as f:
             f.write(f"changed={'true' if changed else 'false'}\n")
-    update_state_prices(trusted, state)
+    update_state_prices(series, state)
 
     best = series.get("best_trip")
     click = best["url"] if best else None

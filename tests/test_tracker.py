@@ -210,14 +210,44 @@ def test_empty_page_is_retried_then_succeeds():
     assert len(opts) == 1 and not errors and len(calls) == 2
 
 
-def test_persistently_empty_is_no_flights_not_error():
+def test_persistently_empty_is_an_error():
     from flight_tracker.fetch import EmptyResult
 
     def empty(q):
         raise EmptyResult("none")
 
     opts, errors = fetch_all(build_specs(CFG)[:1], CFG, fetch_fn=empty, sleep=lambda s: None)
-    assert opts == [] and errors == {}
+    assert opts == [] and "EmptyResult" in next(iter(errors.values()))
+
+
+def _s(p):
+    return {"price": p, "desc": str(p), "url": "u"}
+
+
+def test_stabilize_flicker_rise_is_held_then_reverted():
+    state = {"last": {"best_trip": 96000}, "last_detail": {"best_trip": _s(96000)}}
+    eff = analyze.stabilize({"best_trip": _s(103000)}, {"best_trip"}, state)
+    assert eff["best_trip"]["price"] == 96000 and state["pending_rise"] == {"best_trip": 103000}
+    assert analyze.detect_changes(eff, state, CFG) == []
+    analyze.update_state_prices(eff, state)
+    eff = analyze.stabilize({"best_trip": _s(96000)}, {"best_trip"}, state)  # data back: flicker gone
+    assert eff["best_trip"]["price"] == 96000 and state["pending_rise"] == {}
+    assert analyze.detect_changes(eff, state, CFG) == []
+
+
+def test_stabilize_rise_confirmed_on_second_run():
+    state = {"last": {"best_trip": 96000}, "last_detail": {"best_trip": _s(96000)}}
+    analyze.update_state_prices(analyze.stabilize({"best_trip": _s(100000)}, {"best_trip"}, state), state)
+    eff = analyze.stabilize({"best_trip": _s(100000)}, {"best_trip"}, state)
+    assert eff["best_trip"]["price"] == 100000
+    assert [e.kind for e in analyze.detect_changes(eff, state, CFG)] == ["rise"]
+
+
+def test_stabilize_drop_is_immediate_and_untrusted_carried_forward():
+    state = {"last": {"best_trip": 96000, "out_any_fit": 50000},
+             "last_detail": {"best_trip": _s(96000), "out_any_fit": _s(50000)}}
+    eff = analyze.stabilize({"best_trip": _s(90000), "out_any_fit": _s(70000)}, {"best_trip"}, state)
+    assert eff["best_trip"]["price"] == 90000 and eff["out_any_fit"]["price"] == 50000
 
 
 def test_blocked_page_is_an_error():
