@@ -6,6 +6,7 @@ import argparse
 import logging
 import os
 import sys
+import time
 from datetime import UTC, date, datetime
 
 from . import config as config_mod
@@ -38,6 +39,11 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
     if sleep:
         kwargs["sleep"] = sleep
     options, errors = fetch_all(specs, cfg, **kwargs)
+    if not options:
+        # Whole run came back empty (usually Google walling this runner IP): one delayed retry.
+        log.warning("No options at all; retrying full run in 90s. errors=%s", errors)
+        (sleep or time.sleep)(90)
+        options, errors = fetch_all(specs, cfg, **kwargs)
     state["runs"] = state.get("runs", 0) + 1
     state["last_errors"] = errors
 

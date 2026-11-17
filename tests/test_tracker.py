@@ -192,3 +192,53 @@ def test_corrupt_state_recovers(tmp_path):
     (d / "state.json").write_text("{not json")
     assert store.load_state(d) == {}
     assert (d / "state.corrupt.json").exists()
+
+
+def test_empty_page_is_retried_then_succeeds():
+    from flight_tracker.fetch import EmptyResult
+
+    calls = []
+
+    def flaky(q):
+        calls.append(1)
+        if len(calls) == 1:
+            raise EmptyResult("consent wall")
+        return [AI_OUT]
+
+    spec = [s for s in build_specs(CFG) if s.id == "out-0328-0s"]
+    opts, errors = fetch_all(spec, CFG, fetch_fn=flaky, sleep=lambda s: None)
+    assert len(opts) == 1 and not errors and len(calls) == 2
+
+
+def test_persistently_empty_is_no_flights_not_error():
+    from flight_tracker.fetch import EmptyResult
+
+    def empty(q):
+        raise EmptyResult("none")
+
+    opts, errors = fetch_all(build_specs(CFG)[:1], CFG, fetch_fn=empty, sleep=lambda s: None)
+    assert opts == [] and errors == {}
+
+
+def test_blocked_page_is_an_error():
+    from flight_tracker.fetch import BlockedPage
+
+    def blocked(q):
+        raise BlockedPage("captcha")
+
+    _, errors = fetch_all(build_specs(CFG)[:1], CFG, fetch_fn=blocked, sleep=lambda s: None)
+    assert "BlockedPage" in next(iter(errors.values()))
+
+
+def test_whole_run_retry_recovers(tmp_store):
+    state: dict = {}
+    good = fake_fetch()
+    n = {"c": 0}
+    total = len(build_specs(CFG))
+
+    def first_pass_empty(q):
+        n["c"] += 1
+        return [] if n["c"] <= total else good(q)
+
+    assert main_mod.run(CFG, state, NOW, fetch_fn=first_pass_empty, sleep=lambda s: None) == 0
+    assert state["fail_count"] == 0 and state["last"]["best_trip"] == 96096

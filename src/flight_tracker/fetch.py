@@ -115,10 +115,40 @@ def to_option(result, spec: QuerySpec, cfg: Config, url: str) -> Option:
     )
 
 
-def _default_fetch(q):
-    from fast_flights import get_flights
+class BlockedPage(RuntimeError):
+    """Google served a page without a results payload (consent wall / bot check)."""
 
-    return get_flights(q)
+
+class EmptyResult(RuntimeError):
+    """Results payload present but empty; retried because it is often transient."""
+
+
+# Pre-accepted consent cookies + India region so datacenter IPs skip the consent wall.
+CONSENT_COOKIES = {"CONSENT": "YES+cb", "SOCS": "CAESEwgDEgk0ODE3Nzk3MjQaAmVuIAEaBgiA_LyaBg"}
+GOOGLE_FLIGHTS = "https://www.google.com/travel/flights"
+
+
+def _page_hint(html: str) -> str:
+    import re
+
+    m = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
+    return f"title={(m.group(1).strip() if m else '?')[:60]!r} len={len(html)}"
+
+
+def _default_fetch(q):
+    from fast_flights.parser import parse
+    from primp import Client
+
+    # Fresh client per attempt = fresh fingerprint/cookie jar.
+    client = Client(impersonate="chrome_145", impersonate_os="macos", referer=True, cookie_store=True)
+    res = client.get(GOOGLE_FLIGHTS, params={**q.params(), "gl": "IN"}, cookies=CONSENT_COOKIES)
+    html = res.text
+    if "ds:1" not in html:
+        raise BlockedPage(f"no results payload ({_page_hint(html)})")
+    result = parse(html)
+    if not result:
+        raise EmptyResult(f"empty results ({_page_hint(html)})")
+    return result
 
 
 def fetch_all(
@@ -149,6 +179,8 @@ def fetch_all(
                 log.warning("%s attempt %d failed: %s", spec.id, attempt, e)
                 if attempt < ATTEMPTS:
                     sleep(5 * attempt**2)
+        if raw is None and isinstance(last, EmptyResult):
+            raw = []  # consistently empty with a real results payload: genuinely no flights
         if raw is None:
             errors[spec.id] = f"{type(last).__name__}: {last}"[:300]
             continue
