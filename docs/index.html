@@ -46,7 +46,7 @@ a{color:var(--s1)}.seg{display:flex;gap:6px;margin:0 0 10px}
   </div>
   <div class="chips" id="chips" role="group" aria-label="Series"></div>
   <div class="chartbox"><canvas id="chart" aria-label="Fare history chart"></canvas></div>
-  <p class="foot" style="margin-top:8px">Step lines = observed fares (total for all passengers). Dashed = naive linear trend of the best trip over the last 7 days, projected 14 days ahead — not a forecast you should bet on. Grey dashed = your target.</p>
+  <p class="foot" style="margin-top:8px">Step lines = observed fares (total for all passengers). Dashed = naive trend of the best trip (appears once there are 3+ days of data; projects at most 7 days and is capped at ±10%) — a hint, not a forecast. Grey dashed = your target.</p>
 </div>
 
 <h2>Round-trip journeys (outbound + return)</h2>
@@ -165,14 +165,22 @@ function renderJourneys() {
     : '<tr><td>No journeys fit your filters in the latest run' + (nsOnly ? " — try unticking “Non-stop only”." : ".") + "</td></tr>";
 }
 
+// Naive trend, deliberately conservative so it never swamps the real data:
+// needs >= 3 days of history, projects at most half the observed span (max 7 days),
+// starts from the last real price and is capped at +/-10% of it.
+const TREND_MIN_SPAN = 3 * 864e5, TREND_MAX_AHEAD = 7 * 864e5, TREND_CAP = 0.10;
 function trend(points) {
-  if (points.length < 3) return null;
-  const end = points[points.length - 1].x, pts = points.filter(p => p.x >= end - 7 * 864e5);
-  if (pts.length < 3) return null;
+  if (points.length < 6) return null;
+  const last = points[points.length - 1], first = points[0];
+  if (last.x - first.x < TREND_MIN_SPAN) return null;
+  const pts = points.filter(p => p.x >= last.x - 7 * 864e5);
   const n = pts.length, mx = pts.reduce((a, p) => a + p.x, 0) / n, my = pts.reduce((a, p) => a + p.y, 0) / n;
   let num = 0, den = 0; for (const p of pts) { num += (p.x - mx) * (p.y - my); den += (p.x - mx) ** 2; }
-  if (!den) return null; const m = num / den, f = x => my + m * (x - mx);
-  return [{x: end, y: f(end)}, {x: end + 14 * 864e5, y: f(end + 14 * 864e5)}];
+  if (!den) return null;
+  const ahead = Math.min(TREND_MAX_AHEAD, (last.x - first.x) / 2);
+  const raw = last.y + (num / den) * ahead;
+  const y = Math.min(last.y * (1 + TREND_CAP), Math.max(last.y * (1 - TREND_CAP), raw));
+  return [{x: last.x, y: last.y}, {x: last.x + ahead, y}];
 }
 
 function draw() {
