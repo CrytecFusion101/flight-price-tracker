@@ -1,13 +1,26 @@
 name: track
-# Scheduled price check. Commits history back to the repo (which also keeps the
-# schedule alive) and publishes docs/data.json, which the Vercel dashboard reads live from the repo.
+# Price check. Triggered by cron-job.org (primary, every 30 min via workflow_dispatch),
+# GitHub's own schedule (backup, unreliable) or by hand. Commits history back to the repo
+# and publishes docs/data.json, which the dashboards read live from the repo.
+run-name: "track via ${{ github.event_name == 'schedule' && 'github-schedule' || inputs.source || 'manual' }}"
 on:
   schedule:
-    - cron: "7,37 * * * *"   # every 30 min (public repo: unlimited minutes; GitHub may delay runs)
+    - cron: "7,37 * * * *"   # every 30 min (GitHub may delay or skip these)
   workflow_dispatch:
+    inputs:
+      source:
+        description: "What triggered this run (shown on the dashboard)"
+        type: string
+        # cron-job.org's request body sends no inputs, so the default labels its runs.
+        default: cron-job
+      attempt:
+        description: "1 = normal run, 2 = automatic retry (never retried again)"
+        type: string
+        default: "1"
 
 permissions:
   contents: write
+  actions: write   # lets a partial/failed run start one retry on a fresh runner
 
 concurrency:
   group: track
@@ -36,6 +49,7 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TRACK_SOURCE: ${{ github.event_name == 'schedule' && 'github-schedule' || inputs.source || 'manual' }}
         run: uv run flight-tracker
       - name: Commit data
         if: always() && steps.track.outcome != 'skipped'
@@ -58,3 +72,10 @@ jobs:
             sleep $((i * 5))
           done
           echo "push failed after retries" && exit 1
+      # Google walls some runner IPs; in-run retries reuse the same IP. If this run was
+      # partial or failed, start ONE follow-up run, which lands on a fresh runner/IP.
+      - name: Retry once on a fresh runner
+        if: always() && steps.track.outputs.needs_retry == 'true' && (inputs.attempt || '1') == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run track.yml --repo "$GITHUB_REPOSITORY" --ref main -f source=retry -f attempt=2

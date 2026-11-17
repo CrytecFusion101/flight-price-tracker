@@ -46,8 +46,11 @@ a{color:var(--s1)}.seg{display:flex;gap:6px;margin:0 0 10px}
   </div>
   <div class="chips" id="chips" role="group" aria-label="Series"></div>
   <div class="chartbox"><canvas id="chart" aria-label="Fare history chart"></canvas></div>
-  <p class="foot" style="margin-top:8px">Step lines = observed fares (total for all passengers). Dashed = naive trend of the best trip (appears once there are 3+ days of data; projects at most 7 days and is capped at ±10%) — a hint, not a forecast. Grey dashed = your target.</p>
+  <p class="foot" style="margin-top:8px">Step lines = observed fares (total for all passengers). A break in a line + ✕ at the bottom = that check couldn't search the price (no value is assumed). Hover any point to see which check it came from. Dashed = naive trend of the best trip (appears once there are 3+ days of data; projects at most 7 days and is capped at ±10%) — a hint, not a forecast. Grey dashed = your target.</p>
 </div>
+
+<h2>Recent checks</h2>
+<div class="card tablewrap"><table id="runsTable"></table></div>
 
 <h2>Round-trip journeys (outbound + return)</h2>
 <div class="card">
@@ -83,8 +86,14 @@ const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
   .then(d => { D = d; render(); })
   .catch(e => { document.getElementById("sub").textContent = "No data yet (" + e.message + "). The tracker hasn't published a run."; });
 
+// Where each check came from. Older rows (before labelling) have no source.
+const SRC = {"cron-job": "cron-job.org", "github-schedule": "GitHub schedule", "retry": "auto-retry",
+  "manual": "manual", "local": "local PC", "": "unlabelled"};
+const srcName = s => SRC[s ?? ""] || s;
+const STATUS = {ok: "✓ all searches ok", partial: "◐ some searches failed", failed: "✕ no prices"};
+
 function changeOver(key, hours) {
-  const h = D.history[key]; if (!h || !h.length) return null;
+  const h = (D.history[key] || []).filter(p => p[1] != null); if (!h.length) return null;
   const now = Date.parse(h[h.length - 1][0]), cut = now - hours * 3600e3;
   let ref = h[0][1];
   for (const [t, p] of h) { if (Date.parse(t) <= cut) ref = p; else break; }
@@ -93,8 +102,10 @@ function changeOver(key, hours) {
 
 function render() {
   const t = D.trip;
+  const via = D.source ? ` via ${srcName(D.source)}` : "";
+  const st = D.status && D.status !== "ok" ? ` (${STATUS[D.status] || D.status})` : "";
   document.getElementById("sub").textContent =
-    `${t.adults} adults · economy · out ${t.outbound_dates.join(" / ")} (land 29 Mar) · back ${t.return_date} · updated ${fmtT(Date.parse(D.generated))}`;
+    `${t.adults} adults · economy · out ${t.outbound_dates.join(" / ")} (land 29 Mar) · back ${t.return_date} · last check ${fmtT(Date.parse(D.generated))}${via}${st}`;
   const tile = (k, v, d) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
   const best = D.current.best_trip, ch = changeOver("best_trip", 24), low = D.lows.best_trip;
   const chTxt = ch == null ? "" : ch === 0 ? "no change in 24h" :
@@ -124,6 +135,15 @@ function render() {
   const nsBox = document.getElementById("nsOnly");
   nsBox.onchange = renderJourneys;
   renderJourneys();
+
+  // Recent checks: newest first, with where each came from and whether searches worked.
+  const runs = (D.runs || []).slice(-14).reverse();
+  document.getElementById("runsTable").innerHTML = runs.length ?
+    "<tr><th>Checked at</th><th>Triggered by</th><th>Result</th><th class=num>Flights found</th><th>Searches that failed</th></tr>" +
+    runs.map(([ts, src, status, n, failed]) => `<tr><td>${fmtT(Date.parse(ts))}</td><td><span class="tag">${esc(srcName(src))}</span></td>
+      <td class="${status === "ok" ? "ok" : "no"}">${STATUS[status] || esc(status)}</td><td class=num>${n}</td>
+      <td style="white-space:normal;color:var(--ink2)">${esc(failed || "—")}</td></tr>`).join("")
+    : "<tr><td>No labelled checks yet — they appear from the next run.</td></tr>";
 
   const kindName = {out: "Outbound", ret: "Return", rt: "Round trip"};
   const bagCls = {yes: "ok", likely: "ok", no: "no"};
@@ -155,14 +175,19 @@ function renderJourneys() {
   const stops = o => o.nonstop ? "non-stop" : `${o.stops} stop`;
   const leg = (o, price) => `<b>${price}</b> · ${esc(o.airlines)}<br><span style="color:var(--ink2)">${t(o.dep)} → ${t(o.arr)} · ${stops(o)} · bag: ${o.bag}</span>`;
   const bestTotal = rows.length ? rows[0].total : null;
-  document.getElementById("jTable").innerHTML = rows.length ?
+  const from = `<caption style="text-align:left;color:var(--ink2);font-size:13px;padding-bottom:6px">From the check at ${fmtT(Date.parse(D.generated))}${D.source ? " via " + esc(srcName(D.source)) : ""}${D.status && D.status !== "ok" ? " — " + (STATUS[D.status] || D.status) + ", so some journeys may be missing" : ""}</caption>`;
+  if (D.status === "failed") {
+    document.getElementById("jTable").innerHTML = from + "<tr><td>The latest check couldn't search any prices. No prices are shown rather than old ones; the next check will try again.</td></tr>";
+    return;
+  }
+  document.getElementById("jTable").innerHTML = from + (rows.length ?
     "<tr><th class=num>Total (2 pax)</th><th>Booking</th><th>Outbound DEL → DPS</th><th>Return DPS → DEL</th><th></th></tr>" +
     rows.slice(0, 15).map(r => `<tr${r.total === bestTotal ? ' style="font-weight:600"' : ""}>
       <td class=num>${inr(r.total)}</td><td>${r.type}</td>
       <td style="white-space:normal">${leg(r.out, r.ret ? inr(r.out.price) : "incl.")}</td>
       <td style="white-space:normal">${r.ret ? leg(r.ret, inr(r.ret.price)) : '<span style="color:var(--ink2)">incl. — choose return on Google Flights</span>'}</td>
       <td><a href="${esc(r.out.url)}" target="_blank" rel="noopener">out ↗</a>${r.ret ? ` · <a href="${esc(r.ret.url)}" target="_blank" rel="noopener">ret ↗</a>` : ""}</td></tr>`).join("")
-    : '<tr><td>No journeys fit your filters in the latest run' + (nsOnly ? " — try unticking “Non-stop only”." : ".") + "</td></tr>";
+    : '<tr><td>No journeys fit your filters in the latest run' + (nsOnly ? " — try unticking “Non-stop only”." : ".") + "</td></tr>");
 }
 
 // Naive trend, deliberately conservative so it never swamps the real data:
@@ -189,10 +214,21 @@ function draw() {
   for (const k of active) {
     const h = D.history[k]; if (!h) continue;
     const slot = DEFAULT_SERIES.indexOf(k), col = slot >= 0 ? css(COLORS[slot]) : css("--muted");
-    const data = h.map(([t, p]) => ({x: Date.parse(t), y: p})).filter(p => p.x >= from);
+    // y = null where that check couldn't search the price -> the line breaks (no assumed value).
+    const data = h.map(([t, p, src, note]) => ({x: Date.parse(t), y: p, src, note})).filter(p => p.x >= from);
+    const real = data.filter(p => p.y != null);
     ds.push({label: D.labels[k], data, borderColor: col, backgroundColor: col, borderWidth: 2, stepped: "before",
-      pointRadius: data.length < 40 ? 3 : 0, pointHoverRadius: 5});
-    if (k === "best_trip") { const tr = trend(data); if (tr) ds.push({label: "Best trip — trend (naive)", data: tr, borderColor: col, borderDash: [6, 5], borderWidth: 2, pointRadius: 0}); }
+      spanGaps: false, pointRadius: real.length < 40 ? 3 : 0, pointHoverRadius: 5});
+    if (k === "best_trip") { const tr = trend(real); if (tr) ds.push({label: "Best trip — trend (naive)", data: tr, borderColor: col, borderDash: [6, 5], borderWidth: 2, pointRadius: 0}); }
+  }
+  // ✕ markers along the bottom for checks where the best trip couldn't be searched.
+  const ys = ds.flatMap(d => d.data.map(p => p.y)).filter(y => y != null);
+  const bt = (D.history.best_trip || []).map(([t, p, src, note]) => ({x: Date.parse(t), y: p, src, note}))
+    .filter(p => p.y == null && p.x >= from);
+  if (bt.length && ys.length) {
+    const floor = Math.min(...ys, D.trip.target_price || Infinity) * 0.985;
+    ds.push({label: "No price searched", data: bt.map(p => ({...p, y: floor, missing: true})), showLine: false,
+      pointStyle: "crossRot", pointRadius: 6, pointHoverRadius: 8, borderWidth: 2, borderColor: css("--bad"), backgroundColor: css("--bad")});
   }
   if (D.trip.target_price && ds.length) {
     const xs = ds.flatMap(d => d.data.map(p => p.x));
@@ -212,7 +248,18 @@ function draw() {
       },
       plugins: {
         legend: {position: "bottom", labels: {color: ink2, boxWidth: 12, boxHeight: 2}},
-        tooltip: {callbacks: {title: i => fmtT(i[0].parsed.x), label: i => `${i.dataset.label}: ${inr(i.parsed.y)}`}},
+        tooltip: {
+          filter: i => i.raw.y != null,
+          callbacks: {
+            title: i => fmtT(i[0].parsed.x),
+            label: i => {
+              const r = i.raw, via = r.src !== undefined ? ` · via ${srcName(r.src)}` : "";
+              if (r.missing) return `No price searched (${r.note || "search failed"})${via}`;
+              return `${i.dataset.label}: ${inr(r.y)}${via}`;
+            },
+            afterLabel: i => (i.raw.note && !i.raw.missing ? `  ⚠ ${i.raw.note}` : ""),
+          },
+        },
       },
     },
   });

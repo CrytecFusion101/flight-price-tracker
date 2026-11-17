@@ -124,26 +124,25 @@ def stabilize(series: dict, trusted: set[str], state: dict) -> dict:
     Every series is a minimum over returned options, so missing/partial results can
     only make a price look HIGHER, never lower. Therefore:
       - decreases / unchanged are accepted immediately (a lower fare was really seen);
-      - increases must be seen in 2 consecutive runs before they are accepted;
-      - series whose queries failed this run carry the last accepted value forward.
+      - increases must be seen in 2 consecutive runs before they are accepted (until then
+        the confirmed price is kept, tagged with `pending_rise` so it is shown honestly);
+      - series whose queries failed this run are OMITTED (shown as "no price searched"),
+        never carried forward as if freshly observed.
     """
     detail = state.get("last_detail", {})
     pending = state.setdefault("pending_rise", {})
     out: dict[str, dict] = {}
-    for k in set(series) | set(detail):
-        cur = series.get(k) if k in trusted else None
-        prev = detail.get(k)
-        if cur is None:
-            if prev:
-                out[k] = prev
+    for k, cur in series.items():
+        if k not in trusted:
             continue
+        prev = detail.get(k)
         if prev and cur["price"] > prev["price"]:
             if k in pending:
                 pending.pop(k)
                 out[k] = cur
             else:
                 pending[k] = cur["price"]
-                out[k] = prev
+                out[k] = {**prev, "pending_rise": cur["price"]}
         else:
             pending.pop(k, None)
             out[k] = cur
@@ -156,5 +155,5 @@ def update_state_prices(series: dict, state: dict) -> None:
     detail = state.setdefault("last_detail", {})
     for k, v in series.items():
         last[k] = v["price"]
-        detail[k] = v
+        detail[k] = {f: v[f] for f in ("price", "desc", "url") if f in v}
         lows[k] = min(lows.get(k, v["price"]), v["price"])

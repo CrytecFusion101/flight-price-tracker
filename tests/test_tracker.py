@@ -243,11 +243,43 @@ def test_stabilize_rise_confirmed_on_second_run():
     assert [e.kind for e in analyze.detect_changes(eff, state, CFG)] == ["rise"]
 
 
-def test_stabilize_drop_is_immediate_and_untrusted_carried_forward():
+def test_stabilize_drop_is_immediate_and_failed_series_is_omitted():
     state = {"last": {"best_trip": 96000, "out_any_fit": 50000},
              "last_detail": {"best_trip": _s(96000), "out_any_fit": _s(50000)}}
     eff = analyze.stabilize({"best_trip": _s(90000), "out_any_fit": _s(70000)}, {"best_trip"}, state)
-    assert eff["best_trip"]["price"] == 90000 and eff["out_any_fit"]["price"] == 50000
+    assert eff["best_trip"]["price"] == 90000 and "out_any_fit" not in eff  # gap, not a stale value
+
+
+def test_pending_rise_is_labelled():
+    state = {"last": {"best_trip": 96000}, "last_detail": {"best_trip": _s(96000)}}
+    eff = analyze.stabilize({"best_trip": _s(103000)}, {"best_trip"}, state)
+    assert eff["best_trip"] == {**_s(96000), "pending_rise": 103000}
+
+
+def test_failed_searches_recorded_as_gaps_with_source(tmp_store):
+    tmp, _ = tmp_store
+    state: dict = {}
+    main_mod.run(CFG, state, NOW, fetch_fn=fake_fetch(), sleep=lambda s: None, source="cron-job")
+    fails = {s.id for s in build_specs(CFG) if s.kind == "rt"}
+    main_mod.run(CFG, state, NOW, fetch_fn=fake_fetch(fail_ids=fails), sleep=lambda s: None, source="retry")
+    every = {s.id for s in build_specs(CFG)}
+    main_mod.run(CFG, state, NOW, fetch_fn=fake_fetch(fail_ids=every), sleep=lambda s: None, source="github-schedule")
+    data = json.loads((tmp / "docs" / "data.json").read_text())
+    rt = data["history"]["rt_nonstop_fit"]
+    assert [p[1] for p in rt] == [96096, None, None]
+    assert rt[0][2] == "cron-job" and rt[1][2] == "retry" and "search failed" in rt[1][3]
+    assert [r[1:3] for r in data["runs"]] == [["cron-job", "ok"], ["retry", "partial"], ["github-schedule", "failed"]]
+    assert data["source"] == "github-schedule" and data["status"] == "failed"
+
+
+def test_old_series_csv_header_is_migrated(tmp_path):
+    d = tmp_path / "data"
+    d.mkdir()
+    (d / "series.csv").write_text("ts,key,price,desc\n2026-11-16T12:00:00Z,best_trip,96096,x\n")
+    store.append_run("2026-11-17T00:00:00Z", [], {"best_trip": _s(95000)}, "cron-job", "ok", {}, data=d)
+    hist = store.read_series(d)["best_trip"]
+    assert hist[0][:3] == ["2026-11-16T12:00:00Z", 96096, ""]
+    assert hist[1][:3] == ["2026-11-17T00:00:00Z", 95000, "cron-job"]
 
 
 def test_blocked_page_is_an_error():
@@ -272,3 +304,11 @@ def test_whole_run_retry_recovers(tmp_store):
 
     assert main_mod.run(CFG, state, NOW, fetch_fn=first_pass_empty, sleep=lambda s: None) == 0
     assert state["fail_count"] == 0 and state["last"]["best_trip"] == 96096
+
+
+def test_main_passes_track_source(monkeypatch):
+    seen = {}
+    monkeypatch.setenv("TRACK_SOURCE", "cron-job")
+    monkeypatch.setattr(main_mod.store, "load_state", dict)
+    monkeypatch.setattr(main_mod, "run", lambda cfg, state, now, **kw: seen.update(kw) or 0)
+    assert main_mod.main([]) == 0 and seen["source"] == "cron-job"

@@ -28,7 +28,14 @@ def _deps(key: str) -> set[str]:
     return DEPENDS.get(key, {key.split("_")[0]})
 
 
-def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) -> int:
+def _gh_output(**kv) -> None:
+    """Expose values to later GitHub Actions steps (no-op outside Actions)."""
+    if gh_out := os.environ.get("GITHUB_OUTPUT"):
+        with open(gh_out, "a", encoding="utf-8") as f:
+            f.writelines(f"{k}={v}\n" for k, v in kv.items())
+
+
+def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True, source: str = "local") -> int:
     ts = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     if now.date() > date.fromisoformat(cfg.stop_tracking_after):
         log.info("Trip date passed; tracking stopped.")
@@ -54,9 +61,11 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
             notify.send("Flight tracker is FAILING",
                         f"{state['fail_count']} runs in a row got no prices.\n" +
                         "\n".join(f"{k}: {v}" for k, v in list(errors.items())[:4]), priority=4, tags=["warning"])
+        _gh_output(changed="false", needs_retry="true", status="failed")
         if write:
+            store.append_run(ts, [], {}, source, "failed", errors, failed_keys=set(SERIES))
             store.save_state(state)
-            store.write_dashboard(ts, {}, [], state, errors, cfg)
+            store.write_dashboard(ts, {}, [], state, errors, cfg, src=source, status="failed")
         return 1 if state["fail_count"] >= cfg.failure_alert_after else 0
 
     if state.get("fail_count", 0) >= cfg.failure_alert_after:
@@ -73,9 +82,9 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
     events = detect_changes(series, state, cfg)
     prev_last = state.get("last", {})
     changed = any(prev_last.get(k) != v["price"] for k, v in series.items())
-    if gh_out := os.environ.get("GITHUB_OUTPUT"):  # lets CI redeploy the dashboard only when prices moved
-        with open(gh_out, "a", encoding="utf-8") as f:
-            f.write(f"changed={'true' if changed else 'false'}\n")
+    status = "partial" if errors else "ok"
+    # A partial run gets one follow-up on a fresh runner (new IP), set up by the workflow.
+    _gh_output(changed=str(changed).lower(), needs_retry=str(status != "ok").lower(), status=status)
     update_state_prices(series, state)
 
     best = series.get("best_trip")
@@ -106,10 +115,12 @@ def run(cfg, state: dict, now: datetime, fetch_fn=None, sleep=None, write=True) 
         for o in sorted(options, key=lambda o: (o.kind, o.price)):
             print(f"  [{o.query}] Rs {o.price:,} fits={o.fits} ideal={o.ideal} {o.describe()}")
     else:
-        store.append_run(ts, options, series)
+        failed_keys = {k for k in SERIES if _deps(k) & failed_kinds}
+        store.append_run(ts, options, series, source, status, errors, failed_keys=failed_keys)
         store.save_state(state)
-        store.write_dashboard(ts, series, options, state, errors, cfg)
-    log.info("OK: %d options, %d series, %d events", len(options), len(series), len(events))
+        store.write_dashboard(ts, series, options, state, errors, cfg, src=source, status=status)
+    log.info("OK (%s, via %s): %d options, %d series, %d events", status, source, len(options), len(series),
+             len(events))
     return 0
 
 
@@ -142,12 +153,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.test_notify:
         return 0 if notify.send("Flight tracker test", "Notifications work.", priority=3, tags=["bell"]) else 1
     if args.dry_run:
-        import os
         os.environ["NOTIFY_DISABLED"] = "1"
         state = store.load_state()
         return run(cfg, state, datetime.now(UTC), write=False)
     state = store.load_state()
-    return run(cfg, state, datetime.now(UTC))
+    return run(cfg, state, datetime.now(UTC), source=os.environ.get("TRACK_SOURCE") or "local")
 
 
 if __name__ == "__main__":
