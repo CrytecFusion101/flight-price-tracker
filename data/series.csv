@@ -1,74 +1,83 @@
-ts,key,price,desc
-2026-11-16T12:44:06Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:44:06Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:44:06Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:44:06Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:44:06Z,out_ideal,51046,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-16T12:44:06Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:44:06Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:44:06Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:44:06Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-16T12:50:15Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:50:15Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:50:15Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:50:15Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:50:15Z,out_ideal,53252,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-16T12:50:15Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:50:15Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:50:15Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:50:15Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-16T12:55:29Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:55:29Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T12:55:29Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:55:29Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:55:29Z,out_ideal,53252,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-16T12:55:29Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T12:55:29Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:55:29Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T12:55:29Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-16T22:49:33Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T22:49:33Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-16T22:49:33Z,combo_nonstop,104430,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T22:49:33Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T22:49:33Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-16T22:49:33Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-16T22:49:33Z,ret_nonstop_fit,54706,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T22:49:33Z,ret_any_fit,54706,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-16T22:49:33Z,cheapest_any,102507,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-17T03:58:23Z,best_trip,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T03:58:23Z,combo_nonstop,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T03:58:23Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-17T03:58:23Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T03:58:23Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-17T03:58:23Z,ret_nonstop_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T03:58:23Z,ret_any_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T03:58:23Z,cheapest_any,101868,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-17T04:01:08Z,best_trip,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-17T04:01:08Z,rt_nonstop_fit,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-17T04:01:08Z,combo_nonstop,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T04:01:08Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-17T04:01:08Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T04:01:08Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)
-2026-11-17T04:01:08Z,ret_nonstop_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T04:01:08Z,ret_any_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T04:01:08Z,cheapest_any,101868,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-17T04:30:59Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T04:30:59Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:00:47Z,best_trip,99692,"Round trip, OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) (return = Google's cheapest pairing)"
-2026-11-17T05:00:47Z,rt_nonstop_fit,99692,"Round trip, OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) (return = Google's cheapest pairing)"
-2026-11-17T05:00:47Z,combo_nonstop,105101,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:00:47Z,out_nonstop_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:00:47Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:00:47Z,out_any_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:00:47Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:00:47Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:00:47Z,cheapest_any,101802,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-17T05:11:41Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:11:41Z,combo_nonstop,105101,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:11:41Z,cheapest_any,101802,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)
-2026-11-17T05:11:41Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)
-2026-11-17T05:11:41Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:11:41Z,best_trip,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
-2026-11-17T05:11:41Z,out_nonstop_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:11:41Z,out_any_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)
-2026-11-17T05:11:41Z,rt_nonstop_fit,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)"
+ts,key,price,desc,src,note
+2026-11-16T12:44:06Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:44:06Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:44:06Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:44:06Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:44:06Z,out_ideal,51046,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-16T12:44:06Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:44:06Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:44:06Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:44:06Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-16T12:50:15Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:50:15Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:50:15Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:50:15Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:50:15Z,out_ideal,53252,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-16T12:50:15Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:50:15Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:50:15Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:50:15Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-16T12:55:29Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:55:29Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T12:55:29Z,combo_nonstop,103841,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:55:29Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:55:29Z,out_ideal,53252,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-16T12:55:29Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T12:55:29Z,ret_nonstop_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:55:29Z,ret_any_fit,54117,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T12:55:29Z,cheapest_any,101938,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-16T22:49:33Z,best_trip,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T22:49:33Z,rt_nonstop_fit,96096,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-16T22:49:33Z,combo_nonstop,104430,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T22:49:33Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T22:49:33Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-16T22:49:33Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-16T22:49:33Z,ret_nonstop_fit,54706,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T22:49:33Z,ret_any_fit,54706,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-16T22:49:33Z,cheapest_any,102507,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-17T03:58:23Z,best_trip,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T03:58:23Z,combo_nonstop,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T03:58:23Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-17T03:58:23Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T03:58:23Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-17T03:58:23Z,ret_nonstop_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T03:58:23Z,ret_any_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T03:58:23Z,cheapest_any,101868,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-17T04:01:08Z,best_trip,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-17T04:01:08Z,rt_nonstop_fit,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-17T04:01:08Z,combo_nonstop,103769,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T04:01:08Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-17T04:01:08Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T04:01:08Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),,
+2026-11-17T04:01:08Z,ret_nonstop_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T04:01:08Z,ret_any_fit,54045,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T04:01:08Z,cheapest_any,101868,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-17T04:30:59Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T04:30:59Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:00:47Z,best_trip,99692,"Round trip, OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) (return = Google's cheapest pairing)",,
+2026-11-17T05:00:47Z,rt_nonstop_fit,99692,"Round trip, OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) (return = Google's cheapest pairing)",,
+2026-11-17T05:00:47Z,combo_nonstop,105101,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:00:47Z,out_nonstop_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:00:47Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:00:47Z,out_any_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:00:47Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:00:47Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:00:47Z,cheapest_any,101802,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-17T05:11:41Z,ret_any_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:11:41Z,combo_nonstop,105101,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:11:41Z,cheapest_any,101802,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),,
+2026-11-17T05:11:41Z,ret_nonstop_fit,53977,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),,
+2026-11-17T05:11:41Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:11:41Z,best_trip,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-17T05:11:41Z,out_nonstop_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:11:41Z,out_any_fit,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),,
+2026-11-17T05:11:41Z,rt_nonstop_fit,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",,
+2026-11-17T05:23:28Z,best_trip,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",manual,
+2026-11-17T05:23:28Z,rt_nonstop_fit,96252,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",manual,
+2026-11-17T05:23:28Z,combo_nonstop,103677,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),manual,
+2026-11-17T05:23:28Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),manual,
+2026-11-17T05:23:28Z,out_ideal,51124,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),manual,
+2026-11-17T05:23:28Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),manual,
+2026-11-17T05:23:28Z,ret_nonstop_fit,53953,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),manual,
+2026-11-17T05:23:28Z,ret_any_fit,53953,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),manual,
+2026-11-17T05:23:28Z,cheapest_any,101779,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),manual,
