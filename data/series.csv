@@ -243,3 +243,12 @@ ts,key,price,desc,src,note
 2026-11-17T14:01:20Z,ret_nonstop_fit,53831,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-17T14:01:20Z,ret_any_fit,53831,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-17T14:01:20Z,cheapest_any,103555,OUT IndiGo non-stop 28 Mar 07:55->28 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-17T14:14:50Z,best_trip,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,rt_nonstop_fit,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,combo_nonstop,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,out_nonstop_fit,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,out_ideal,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,out_any_fit,,,github-schedule,no price (no matching flight)
+2026-11-17T14:14:50Z,ret_nonstop_fit,53831,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),github-schedule,
+2026-11-17T14:14:50Z,ret_any_fit,53831,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),github-schedule,
+2026-11-17T14:14:50Z,cheapest_any,,,github-schedule,no price (no matching flight)
