@@ -2,13 +2,13 @@
   "fail_count": 0,
   "last": {
     "best_trip": 96146,
-    "cheapest_any": 107547,
-    "combo_nonstop": 103675,
+    "cheapest_any": 98066,
+    "combo_nonstop": 99961,
     "out_any_fit": 46074,
     "out_ideal": 46074,
     "out_nonstop_fit": 46074,
-    "ret_any_fit": 53951,
-    "ret_nonstop_fit": 53951,
+    "ret_any_fit": 53887,
+    "ret_nonstop_fit": 53887,
     "rt_nonstop_fit": 96146
   },
   "last_detail": {
@@ -18,14 +18,14 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     },
     "cheapest_any": {
-      "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Scoot + Singapore Airlines 1 stop 03 Apr 11:15->03 Apr 20:05 (bag: no)",
-      "price": 107547,
+      "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)",
+      "price": 98066,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "combo_nonstop": {
-      "desc": "OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 103675,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
+      "price": 99961,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_any_fit": {
       "desc": "Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)",
@@ -44,12 +44,12 @@
     },
     "ret_any_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 53951,
+      "price": 53887,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_nonstop_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 53951,
+      "price": 53887,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "rt_nonstop_fit": {
@@ -60,11 +60,11 @@
   },
   "last_digest": "2026-11-18",
   "last_errors": {},
-  "last_success": "2026-11-18T12:30:59Z",
+  "last_success": "2026-11-18T12:54:21Z",
   "lows": {
     "best_trip": 96096,
-    "cheapest_any": 101606,
-    "combo_nonstop": 103505,
+    "cheapest_any": 98066,
+    "combo_nonstop": 99961,
     "out_any_fit": 46074,
     "out_ideal": 46074,
     "out_nonstop_fit": 46074,
@@ -72,8 +72,6 @@
     "ret_nonstop_fit": 53773,
     "rt_nonstop_fit": 96096
   },
-  "pending_rise": {
-    "ret_any_fit": 73881
-  },
-  "runs": 77
+  "pending_rise": {},
+  "runs": 78
 }
