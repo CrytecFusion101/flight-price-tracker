@@ -567,3 +567,12 @@ ts,key,price,desc,src,note
 2026-11-18T06:30:57Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-18T06:30:57Z,ret_any_fit,,,cron-job,no price (no matching flight)
 2026-11-18T06:30:57Z,cheapest_any,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,best_trip,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,rt_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,combo_nonstop,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,out_nonstop_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),cron-job,"higher price Rs 51,072 seen, awaiting confirmation"
+2026-11-18T07:01:11Z,out_ideal,51072,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-18T07:01:11Z,out_any_fit,49724,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),cron-job,"higher price Rs 51,072 seen, awaiting confirmation"
+2026-11-18T07:01:11Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,ret_any_fit,,,cron-job,no price (no matching flight)
+2026-11-18T07:01:11Z,cheapest_any,,,cron-job,no price (no matching flight)
