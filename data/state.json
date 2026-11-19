@@ -1,5 +1,5 @@
 {
-  "fail_count": 0,
+  "fail_count": 1,
   "last": {
     "best_trip": 103549,
     "cheapest_any": 101657,
@@ -73,5 +73,5 @@
     "rt_nonstop_fit": 93416
   },
   "pending_rise": {},
-  "runs": 123
+  "runs": 124
 }
