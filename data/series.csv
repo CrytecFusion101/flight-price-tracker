@@ -1323,3 +1323,12 @@ ts,key,price,desc,src,note
 2026-11-19T21:30:59Z,ret_nonstop_fit,53769,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-19T21:30:59Z,ret_any_fit,53769,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-19T21:30:59Z,cheapest_any,97811,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,best_trip,93416,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,"higher price Rs 97,426 seen, awaiting confirmation"
+2026-11-19T22:01:11Z,rt_nonstop_fit,93416,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,"higher price Rs 97,426 seen, awaiting confirmation"
+2026-11-19T22:01:11Z,combo_nonstop,99701,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,out_nonstop_fit,45932,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,out_ideal,45932,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,out_any_fit,45932,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,ret_nonstop_fit,53769,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,ret_any_fit,53769,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-19T22:01:11Z,cheapest_any,97811,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
