@@ -58,9 +58,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     }
   },
-  "last_digest": "2026-11-18",
+  "last_digest": "2026-11-19",
   "last_errors": {},
-  "last_success": "2026-11-19T02:44:51Z",
+  "last_success": "2026-11-19T03:01:13Z",
   "lows": {
     "best_trip": 93648,
     "cheapest_any": 97937,
@@ -73,5 +73,5 @@
     "rt_nonstop_fit": 93648
   },
   "pending_rise": {},
-  "runs": 108
+  "runs": 109
 }
