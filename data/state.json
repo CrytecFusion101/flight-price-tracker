@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-19",
   "last_errors": {},
-  "last_success": "2026-11-19T22:30:57Z",
+  "last_success": "2026-11-19T23:01:14Z",
   "lows": {
     "best_trip": 93416,
     "cheapest_any": 97806,
@@ -73,8 +73,10 @@
     "rt_nonstop_fit": 93416
   },
   "pending_rise": {
+    "best_trip": 97426,
     "cheapest_any": 102887,
-    "ret_any_fit": 56955
+    "ret_any_fit": 56955,
+    "rt_nonstop_fit": 97426
   },
-  "runs": 151
+  "runs": 152
 }
