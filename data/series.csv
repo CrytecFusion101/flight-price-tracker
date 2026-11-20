@@ -1377,3 +1377,12 @@ ts,key,price,desc,src,note
 2026-11-20T00:30:56Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-20T00:30:56Z,ret_any_fit,54015,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 56,878 seen, awaiting confirmation"
 2026-11-20T00:30:56Z,cheapest_any,98048,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,"higher price Rs 106,602 seen, awaiting confirmation"
+2026-11-20T01:01:11Z,best_trip,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,rt_nonstop_fit,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,combo_nonstop,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,out_nonstop_fit,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,out_ideal,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,out_any_fit,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,ret_nonstop_fit,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,ret_any_fit,,,cron-job,no price (search failed)
+2026-11-20T01:01:11Z,cheapest_any,,,cron-job,no price (search failed)
