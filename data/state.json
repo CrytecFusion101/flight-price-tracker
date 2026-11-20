@@ -2,13 +2,13 @@
   "fail_count": 0,
   "last": {
     "best_trip": 94314,
-    "cheapest_any": 99398,
-    "combo_nonstop": 99398,
+    "cheapest_any": 99374,
+    "combo_nonstop": 99374,
     "out_any_fit": 47914,
     "out_ideal": 47914,
     "out_nonstop_fit": 47914,
-    "ret_any_fit": 51484,
-    "ret_nonstop_fit": 51484,
+    "ret_any_fit": 51460,
+    "ret_nonstop_fit": 51460,
     "rt_nonstop_fit": 94314
   },
   "last_detail": {
@@ -19,12 +19,12 @@
     },
     "cheapest_any": {
       "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)",
-      "price": 99398,
+      "price": 99374,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "combo_nonstop": {
       "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 99398,
+      "price": 99374,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_any_fit": {
@@ -44,12 +44,12 @@
     },
     "ret_any_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51484,
+      "price": 51460,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_nonstop_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51484,
+      "price": 51460,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "rt_nonstop_fit": {
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-20",
   "last_errors": {},
-  "last_success": "2026-11-20T22:30:59Z",
+  "last_success": "2026-11-20T23:01:24Z",
   "lows": {
     "best_trip": 93416,
     "cheapest_any": 97806,
@@ -72,11 +72,6 @@
     "ret_nonstop_fit": 51448,
     "rt_nonstop_fit": 93416
   },
-  "pending_rise": {
-    "best_trip": 97328,
-    "out_any_fit": 69140,
-    "out_ideal": 72080,
-    "rt_nonstop_fit": 97328
-  },
-  "runs": 204
+  "pending_rise": {},
+  "runs": 205
 }
