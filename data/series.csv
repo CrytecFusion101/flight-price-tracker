@@ -1521,3 +1521,12 @@ ts,key,price,desc,src,note
 2026-11-20T07:01:13Z,ret_nonstop_fit,51657,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 51,733 seen, awaiting confirmation"
 2026-11-20T07:01:13Z,ret_any_fit,51733,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-20T07:01:13Z,cheapest_any,115717,OUT Vietjet 1 stop 29 Mar 00:05->29 Mar 13:05 (bag: no) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
+2026-11-20T07:30:56Z,best_trip,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,rt_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,combo_nonstop,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,out_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,out_ideal,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,out_any_fit,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-20T07:30:56Z,ret_any_fit,51733,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 56,632 seen, awaiting confirmation"
+2026-11-20T07:30:56Z,cheapest_any,115717,OUT Vietjet 1 stop 29 Mar 00:05->29 Mar 13:05 (bag: no) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,"higher price Rs 120,616 seen, awaiting confirmation"
