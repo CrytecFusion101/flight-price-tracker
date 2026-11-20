@@ -1674,3 +1674,12 @@ ts,key,price,desc,src,note
 2026-11-20T15:01:18Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-20T15:01:18Z,ret_any_fit,56460,Singapore Airlines 1 stop 03 Apr 21:40->04 Apr 05:40 (bag: yes),cron-job,
 2026-11-20T15:01:18Z,cheapest_any,99445,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,"higher price Rs 107,390 seen, awaiting confirmation"
+2026-11-20T15:31:10Z,best_trip,99452,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,rt_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-20T15:31:10Z,combo_nonstop,99452,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,out_nonstop_fit,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,out_ideal,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,out_any_fit,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,ret_nonstop_fit,51514,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,ret_any_fit,51514,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-20T15:31:10Z,cheapest_any,99452,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
