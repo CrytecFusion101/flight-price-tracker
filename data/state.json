@@ -59,10 +59,8 @@
     }
   },
   "last_digest": "2026-11-20",
-  "last_errors": {
-    "rt-0328-0403-0s": "BlockedPage: no results payload (title='https://www.google.com/travel/flights?tfs=GhwSCjIwMjctMDMtMj' len=3604)"
-  },
-  "last_success": "2026-11-20T04:01:11Z",
+  "last_errors": {},
+  "last_success": "2026-11-20T04:03:37Z",
   "lows": {
     "best_trip": 93416,
     "cheapest_any": 97806,
@@ -77,5 +75,5 @@
   "pending_rise": {
     "combo_nonstop": 101573
   },
-  "runs": 164
+  "runs": 165
 }
