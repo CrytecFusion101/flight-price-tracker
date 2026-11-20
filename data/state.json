@@ -2,12 +2,12 @@
   "fail_count": 0,
   "last": {
     "best_trip": 94360,
-    "cheapest_any": 99452,
+    "cheapest_any": 121189,
     "combo_nonstop": 99452,
     "out_any_fit": 47938,
     "out_ideal": 47938,
     "out_nonstop_fit": 47938,
-    "ret_any_fit": 51514,
+    "ret_any_fit": 51547,
     "ret_nonstop_fit": 51514,
     "rt_nonstop_fit": 94360
   },
@@ -18,9 +18,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     },
     "cheapest_any": {
-      "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)",
-      "price": 99452,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "OUT Singapore Airlines + Scoot 1 stop 28 Mar 21:55->29 Mar 10:15 (bag: no) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)",
+      "price": 121189,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAWoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "combo_nonstop": {
       "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
@@ -44,7 +44,7 @@
     },
     "ret_any_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51514,
+      "price": 51547,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_nonstop_fit": {
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-20",
   "last_errors": {},
-  "last_success": "2026-11-20T16:31:05Z",
+  "last_success": "2026-11-20T17:01:19Z",
   "lows": {
     "best_trip": 93416,
     "cheapest_any": 97806,
@@ -73,8 +73,9 @@
     "rt_nonstop_fit": 93416
   },
   "pending_rise": {
-    "cheapest_any": 104442,
-    "ret_any_fit": 56504
+    "out_any_fit": 72088,
+    "out_ideal": 72088,
+    "ret_nonstop_fit": 51547
   },
-  "runs": 191
+  "runs": 192
 }
