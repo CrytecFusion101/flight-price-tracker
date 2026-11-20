@@ -1719,3 +1719,12 @@ ts,key,price,desc,src,note
 2026-11-20T17:31:07Z,ret_nonstop_fit,51488,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-20T17:31:07Z,ret_any_fit,51488,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
 2026-11-20T17:31:07Z,cheapest_any,99426,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
+2026-11-20T17:43:15Z,best_trip,94360,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",github-schedule,
+2026-11-20T17:43:15Z,rt_nonstop_fit,94360,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",github-schedule,
+2026-11-20T17:43:15Z,combo_nonstop,,,github-schedule,no price (no matching flight)
+2026-11-20T17:43:15Z,out_nonstop_fit,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),github-schedule,
+2026-11-20T17:43:15Z,out_ideal,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),github-schedule,
+2026-11-20T17:43:15Z,out_any_fit,47938,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),github-schedule,
+2026-11-20T17:43:15Z,ret_nonstop_fit,,,github-schedule,no price (no matching flight)
+2026-11-20T17:43:15Z,ret_any_fit,51488,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),github-schedule,"higher price Rs 56,442 seen, awaiting confirmation"
+2026-11-20T17:43:15Z,cheapest_any,99426,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),github-schedule,"higher price Rs 104,380 seen, awaiting confirmation"
