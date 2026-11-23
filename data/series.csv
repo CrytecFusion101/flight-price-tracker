@@ -3213,3 +3213,12 @@ ts,key,price,desc,src,note
 2026-11-23T21:31:00Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-23T21:31:00Z,ret_any_fit,56888,Singapore Airlines 1 stop 03 Apr 21:40->04 Apr 05:40 (bag: yes),cron-job,
 2026-11-23T21:31:00Z,cheapest_any,102704,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Singapore Airlines 1 stop 03 Apr 21:40->04 Apr 05:40 (bag: yes),cron-job,
+2026-11-23T22:01:07Z,best_trip,93130,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,
+2026-11-23T22:01:07Z,rt_nonstop_fit,93130,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,
+2026-11-23T22:01:07Z,combo_nonstop,,,cron-job,no price (no matching flight)
+2026-11-23T22:01:07Z,out_nonstop_fit,45816,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-23T22:01:07Z,out_ideal,45816,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-23T22:01:07Z,out_any_fit,45816,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,
+2026-11-23T22:01:07Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-23T22:01:07Z,ret_any_fit,,,cron-job,no price (no matching flight)
+2026-11-23T22:01:07Z,cheapest_any,,,cron-job,no price (no matching flight)
