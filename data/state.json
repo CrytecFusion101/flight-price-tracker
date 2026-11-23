@@ -1,7 +1,7 @@
 {
   "fail_count": 0,
   "last": {
-    "best_trip": 93318,
+    "best_trip": 93130,
     "cheapest_any": 97853,
     "combo_nonstop": 97853,
     "out_any_fit": 45908,
@@ -9,12 +9,12 @@
     "out_nonstop_fit": 45908,
     "ret_any_fit": 51945,
     "ret_nonstop_fit": 51945,
-    "rt_nonstop_fit": 93318
+    "rt_nonstop_fit": 93130
   },
   "last_detail": {
     "best_trip": {
       "desc": "Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",
-      "price": 93318,
+      "price": 93130,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     },
     "cheapest_any": {
@@ -54,15 +54,15 @@
     },
     "rt_nonstop_fit": {
       "desc": "Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",
-      "price": 93318,
+      "price": 93130,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     }
   },
   "last_digest": "2026-11-23",
   "last_errors": {},
-  "last_success": "2026-11-23T19:30:59Z",
+  "last_success": "2026-11-23T20:01:10Z",
   "lows": {
-    "best_trip": 93318,
+    "best_trip": 93130,
     "cheapest_any": 97338,
     "combo_nonstop": 97338,
     "out_any_fit": 45908,
@@ -70,14 +70,13 @@
     "out_nonstop_fit": 45908,
     "ret_any_fit": 51430,
     "ret_nonstop_fit": 51430,
-    "rt_nonstop_fit": 93318
+    "rt_nonstop_fit": 93130
   },
   "pending_rise": {
-    "best_trip": 97857,
     "cheapest_any": 97857,
     "combo_nonstop": 97857,
     "ret_any_fit": 51949,
     "ret_nonstop_fit": 51949
   },
-  "runs": 355
+  "runs": 356
 }
