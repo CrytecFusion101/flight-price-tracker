@@ -7,8 +7,8 @@
     "out_any_fit": 45908,
     "out_ideal": 45908,
     "out_nonstop_fit": 45908,
-    "ret_any_fit": 51617,
-    "ret_nonstop_fit": 51617,
+    "ret_any_fit": 51847,
+    "ret_nonstop_fit": 51847,
     "rt_nonstop_fit": 94314
   },
   "last_detail": {
@@ -44,12 +44,12 @@
     },
     "ret_any_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51617,
+      "price": 51847,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_nonstop_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51617,
+      "price": 51847,
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "rt_nonstop_fit": {
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-23",
   "last_errors": {},
-  "last_success": "2026-11-23T04:30:55Z",
+  "last_success": "2026-11-23T05:01:10Z",
   "lows": {
     "best_trip": 93416,
     "cheapest_any": 97338,
@@ -72,10 +72,6 @@
     "ret_nonstop_fit": 51430,
     "rt_nonstop_fit": 93416
   },
-  "pending_rise": {
-    "best_trip": 97755,
-    "ret_any_fit": 51847,
-    "ret_nonstop_fit": 51847
-  },
-  "runs": 323
+  "pending_rise": {},
+  "runs": 324
 }
