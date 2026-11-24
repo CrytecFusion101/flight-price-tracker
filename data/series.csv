@@ -3654,3 +3654,12 @@ ts,key,price,desc,src,note
 2026-11-24T20:49:34Z,ret_nonstop_fit,,,github-schedule,no price (search failed)
 2026-11-24T20:49:34Z,ret_any_fit,,,github-schedule,no price (search failed)
 2026-11-24T20:49:34Z,cheapest_any,,,github-schedule,no price (search failed)
+2026-11-24T20:51:58Z,best_trip,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,rt_nonstop_fit,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,combo_nonstop,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,out_nonstop_fit,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,out_ideal,47806,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),retry,"higher price Rs 69,828 seen, awaiting confirmation"
+2026-11-24T20:51:58Z,out_any_fit,47806,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),retry,"higher price Rs 66,302 seen, awaiting confirmation"
+2026-11-24T20:51:58Z,ret_nonstop_fit,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,ret_any_fit,,,retry,no price (no matching flight)
+2026-11-24T20:51:58Z,cheapest_any,,,retry,no price (no matching flight)
