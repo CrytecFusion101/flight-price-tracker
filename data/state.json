@@ -59,8 +59,10 @@
     }
   },
   "last_digest": "2026-11-25",
-  "last_errors": {},
-  "last_success": "2026-11-25T22:31:01Z",
+  "last_errors": {
+    "out-0328-0s": "BlockedPage: no results payload (title='https://www.google.com/travel/flights?tfs=GhwSCjIwMjctMDMtMj' len=3485)"
+  },
+  "last_success": "2026-11-25T23:01:19Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 97338,
@@ -78,8 +80,7 @@
     "combo_nonstop": 102001,
     "out_any_fit": 50984,
     "out_ideal": 69672,
-    "out_nonstop_fit": 50984,
-    "rt_nonstop_fit": 97096
+    "out_nonstop_fit": 50984
   },
-  "runs": 462
+  "runs": 463
 }
