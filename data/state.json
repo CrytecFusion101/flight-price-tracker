@@ -4,7 +4,7 @@
     "best_trip": 94104,
     "cheapest_any": 98871,
     "combo_nonstop": 98871,
-    "out_any_fit": 66302,
+    "out_any_fit": 50984,
     "out_ideal": 70650,
     "out_nonstop_fit": 47806,
     "ret_any_fit": 51050,
@@ -28,9 +28,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_any_fit": {
-      "desc": "Singapore Airlines 1 stop 28 Mar 21:55->29 Mar 18:50 (bag: yes)",
-      "price": 66302,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAWoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)",
+      "price": 50984,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_ideal": {
       "desc": "Singapore Airlines 1 stop 28 Mar 21:55->29 Mar 11:00 (bag: yes)",
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-25",
   "last_errors": {},
-  "last_success": "2026-11-25T18:01:17Z",
+  "last_success": "2026-11-25T18:31:04Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 97338,
@@ -73,7 +73,10 @@
     "rt_nonstop_fit": 93130
   },
   "pending_rise": {
-    "cheapest_any": 117352
+    "best_trip": 97118,
+    "cheapest_any": 117352,
+    "out_nonstop_fit": 50984,
+    "rt_nonstop_fit": 97118
   },
-  "runs": 453
+  "runs": 454
 }

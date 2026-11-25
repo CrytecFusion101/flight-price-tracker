@@ -4059,3 +4059,12 @@ ts,key,price,desc,src,note
 2026-11-25T18:01:17Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-25T18:01:17Z,ret_any_fit,,,cron-job,no price (no matching flight)
 2026-11-25T18:01:17Z,cheapest_any,,,cron-job,no price (no matching flight)
+2026-11-25T18:31:04Z,best_trip,94104,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,"higher price Rs 97,118 seen, awaiting confirmation"
+2026-11-25T18:31:04Z,rt_nonstop_fit,94104,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,"higher price Rs 97,118 seen, awaiting confirmation"
+2026-11-25T18:31:04Z,combo_nonstop,,,cron-job,no price (no matching flight)
+2026-11-25T18:31:04Z,out_nonstop_fit,47806,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,"higher price Rs 50,984 seen, awaiting confirmation"
+2026-11-25T18:31:04Z,out_ideal,70650,Singapore Airlines 1 stop 28 Mar 21:55->29 Mar 11:00 (bag: yes),cron-job,
+2026-11-25T18:31:04Z,out_any_fit,50984,IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely),cron-job,
+2026-11-25T18:31:04Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
+2026-11-25T18:31:04Z,ret_any_fit,,,cron-job,no price (no matching flight)
+2026-11-25T18:31:04Z,cheapest_any,,,cron-job,no price (no matching flight)
