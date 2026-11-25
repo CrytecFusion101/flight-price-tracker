@@ -7,7 +7,7 @@
     "out_any_fit": 47806,
     "out_ideal": 47806,
     "out_nonstop_fit": 47806,
-    "ret_any_fit": 51050,
+    "ret_any_fit": 56122,
     "ret_nonstop_fit": 51050,
     "rt_nonstop_fit": 97118
   },
@@ -43,9 +43,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_any_fit": {
-      "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
-      "price": 51050,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "Singapore Airlines 1 stop 03 Apr 21:40->04 Apr 05:40 (bag: yes)",
+      "price": 56122,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDQtMDMoAWoFEgNEUFNyBRIDREVMQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_nonstop_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-25",
   "last_errors": {},
-  "last_success": "2026-11-25T19:01:19Z",
+  "last_success": "2026-11-25T19:30:59Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 97338,
@@ -73,9 +73,9 @@
     "rt_nonstop_fit": 93130
   },
   "pending_rise": {
+    "cheapest_any": 98964,
     "combo_nonstop": 98951,
-    "ret_any_fit": 51145,
     "ret_nonstop_fit": 51145
   },
-  "runs": 455
+  "runs": 456
 }
