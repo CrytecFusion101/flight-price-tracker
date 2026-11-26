@@ -7724,3 +7724,9 @@ ts,query,kind,price,airlines,stops,dep,arr,duration_min,nonstop,fits,ideal,bag
 2026-11-26T15:01:19Z,ret-0403-1s,ret,51057,Air India,0,2027-04-03T15:10,2027-04-03T20:45,485,True,True,True,yes
 2026-11-26T15:01:19Z,ret-0403-1s,ret,56011,Singapore Airlines,1,2027-04-03T12:10,2027-04-03T20:05,625,False,True,True,yes
 2026-11-26T15:01:19Z,ret-0403-1s,ret,60409,Scoot + Singapore Airlines,1,2027-04-03T11:15,2027-04-03T20:05,680,False,False,False,no
+2026-11-26T15:31:03Z,out-0328-1s,out,66300,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T18:50,1105,False,True,False,yes
+2026-11-26T15:31:03Z,out-0328-1s,out,67866,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T12:00,695,False,True,False,yes
+2026-11-26T15:31:03Z,out-0328-1s,out,69892,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T11:00,635,False,True,True,yes
+2026-11-26T15:31:03Z,ret-0403-1s,ret,51046,Air India,0,2027-04-03T15:10,2027-04-03T20:45,485,True,True,True,yes
+2026-11-26T15:31:03Z,ret-0403-1s,ret,55999,Singapore Airlines,1,2027-04-03T12:10,2027-04-03T20:05,625,False,True,True,yes
+2026-11-26T15:31:03Z,ret-0403-1s,ret,60396,Scoot + Singapore Airlines,1,2027-04-03T11:15,2027-04-03T20:05,680,False,False,False,no
