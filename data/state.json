@@ -4,9 +4,9 @@
     "best_trip": 97096,
     "cheapest_any": 98817,
     "combo_nonstop": 98817,
-    "out_any_fit": 47796,
+    "out_any_fit": 49724,
     "out_ideal": 47796,
-    "out_nonstop_fit": 47796,
+    "out_nonstop_fit": 49724,
     "ret_any_fit": 51021,
     "ret_nonstop_fit": 51021,
     "rt_nonstop_fit": 97096
@@ -28,9 +28,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_any_fit": {
-      "desc": "Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)",
-      "price": 47796,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)",
+      "price": 49724,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_ideal": {
       "desc": "Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)",
@@ -38,9 +38,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "out_nonstop_fit": {
-      "desc": "Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes)",
-      "price": 47796,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely)",
+      "price": 49724,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "ret_any_fit": {
       "desc": "Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-26",
   "last_errors": {},
-  "last_success": "2026-11-26T20:01:13Z",
+  "last_success": "2026-11-26T20:30:58Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 97338,
@@ -75,9 +75,7 @@
   "pending_rise": {
     "cheapest_any": 100745,
     "combo_nonstop": 100745,
-    "out_any_fit": 49724,
-    "out_ideal": 69522,
-    "out_nonstop_fit": 49724
+    "out_ideal": 69522
   },
-  "runs": 509
+  "runs": 510
 }
