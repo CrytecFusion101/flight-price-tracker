@@ -5040,3 +5040,12 @@ ts,key,price,desc,src,note
 2026-11-27T20:31:00Z,ret_nonstop_fit,,,cron-job,no price (no matching flight)
 2026-11-27T20:31:00Z,ret_any_fit,49413,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 56,417 seen, awaiting confirmation"
 2026-11-27T20:31:00Z,cheapest_any,97103,OUT Air India non-stop 28 Mar 02:55->28 Mar 13:30 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,"higher price Rs 104,107 seen, awaiting confirmation"
+2026-11-27T21:01:13Z,best_trip,93858,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,
+2026-11-27T21:01:13Z,rt_nonstop_fit,93858,"Round trip, OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) (return = Google's cheapest pairing)",cron-job,
+2026-11-27T21:01:13Z,combo_nonstop,97103,OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 99,164 seen, awaiting confirmation"
+2026-11-27T21:01:13Z,out_nonstop_fit,47690,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,"higher price Rs 49,724 seen, awaiting confirmation"
+2026-11-27T21:01:13Z,out_ideal,,,cron-job,no price (no matching flight)
+2026-11-27T21:01:13Z,out_any_fit,47690,Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes),cron-job,"higher price Rs 49,724 seen, awaiting confirmation"
+2026-11-27T21:01:13Z,ret_nonstop_fit,49413,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,"higher price Rs 49,440 seen, awaiting confirmation"
+2026-11-27T21:01:13Z,ret_any_fit,49440,Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes),cron-job,
+2026-11-27T21:01:13Z,cheapest_any,99164,OUT IndiGo non-stop 29 Mar 07:55->29 Mar 18:10 (bag: likely) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes),cron-job,
