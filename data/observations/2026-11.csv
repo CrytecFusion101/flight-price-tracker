@@ -8327,3 +8327,9 @@ ts,query,kind,price,airlines,stops,dep,arr,duration_min,nonstop,fits,ideal,bag
 2026-11-27T11:01:18Z,out-0329-1s,out,63984,Vietjet,1,2027-03-29T00:05,2027-03-29T13:05,630,False,True,False,no
 2026-11-27T11:01:18Z,out-0329-1s,out,66276,Singapore Airlines,1,2027-03-29T21:55,2027-03-30T12:00,695,False,False,False,yes
 2026-11-27T11:01:18Z,out-0329-1s,out,69584,Singapore Airlines + Scoot,1,2027-03-29T21:55,2027-03-30T10:15,590,False,False,False,no
+2026-11-27T11:30:58Z,out-0328-1s,out,66276,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T18:50,1105,False,True,False,yes
+2026-11-27T11:30:58Z,out-0328-1s,out,67578,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T12:00,695,False,True,False,yes
+2026-11-27T11:30:58Z,out-0328-1s,out,69144,Singapore Airlines,1,2027-03-28T21:55,2027-03-29T11:00,635,False,True,True,yes
+2026-11-27T11:30:58Z,ret-0403-0s,ret,49361,Air India,0,2027-04-03T08:40,2027-04-03T14:15,485,True,False,False,yes
+2026-11-27T11:30:58Z,ret-0403-0s,ret,49361,Air India,0,2027-04-03T15:10,2027-04-03T20:45,485,True,True,True,yes
+2026-11-27T11:30:58Z,ret-0403-0s,ret,59750,IndiGo,0,2027-04-03T19:10,2027-04-04T00:35,475,True,True,True,likely
