@@ -1,5 +1,5 @@
 {
-  "fail_count": 4,
+  "fail_count": 0,
   "last": {
     "best_trip": 93890,
     "cheapest_any": 97260,
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-27",
   "last_errors": {},
-  "last_success": "2026-11-28T01:01:11Z",
+  "last_success": "2026-11-28T02:01:10Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 96772,
@@ -72,9 +72,6 @@
     "ret_nonstop_fit": 49082,
     "rt_nonstop_fit": 93130
   },
-  "pending_rise": {
-    "best_trip": 96904,
-    "rt_nonstop_fit": 96904
-  },
-  "runs": 575
+  "pending_rise": {},
+  "runs": 576
 }
