@@ -59,12 +59,8 @@
     }
   },
   "last_digest": "2026-11-28",
-  "last_errors": {
-    "out-0328-1s": "BlockedPage: no results payload (title='https://www.google.com/travel/flights?tfs=GhwSCjIwMjctMDMtMj' len=3485)",
-    "out-0329-0s": "BlockedPage: no results payload (title='https://www.google.com/travel/flights?tfs=GhwSCjIwMjctMDMtMj' len=3485)",
-    "out-0329-1s": "BlockedPage: no results payload (title='https://www.google.com/travel/flights?tfs=GhwSCjIwMjctMDMtMj' len=3484)"
-  },
-  "last_success": "2026-11-28T15:31:01Z",
+  "last_errors": {},
+  "last_success": "2026-11-28T15:35:00Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 96772,
@@ -77,7 +73,7 @@
     "rt_nonstop_fit": 93130
   },
   "pending_rise": {
-    "best_trip": 97260
+    "cheapest_any": 113534
   },
-  "runs": 606
+  "runs": 607
 }
