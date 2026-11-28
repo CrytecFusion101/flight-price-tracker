@@ -2,7 +2,7 @@
   "fail_count": 0,
   "last": {
     "best_trip": 96904,
-    "cheapest_any": 97260,
+    "cheapest_any": 118669,
     "combo_nonstop": 97260,
     "out_any_fit": 47710,
     "out_ideal": 47710,
@@ -18,9 +18,9 @@
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAGoFEgNERUxyBRIDRFBTGhwSCjIwMjctMDQtMDMoAGoFEgNEUFNyBRIDREVMQgIBAUgBmAEB&hl=en&curr=INR"
     },
     "cheapest_any": {
-      "desc": "OUT Air India non-stop 28 Mar 02:55->28 Mar 13:30 (bag: yes) | RET Air India non-stop 03 Apr 08:40->03 Apr 14:15 (bag: yes)",
-      "price": 97260,
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjgoAGoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
+      "desc": "OUT Vietjet 1 stop 29 Mar 00:05->29 Mar 13:05 (bag: no) | RET Scoot + Singapore Airlines 1 stop 03 Apr 11:20->03 Apr 20:05 (bag: no)",
+      "price": 118669,
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDMtMjkoAWoFEgNERUxyBRIDRFBTQgIBAUgBmAEC&hl=en&curr=INR"
     },
     "combo_nonstop": {
       "desc": "OUT Air India non-stop 28 Mar 20:45->29 Mar 07:20 (bag: yes) | RET Air India non-stop 03 Apr 15:10->03 Apr 20:45 (bag: yes)",
@@ -60,7 +60,7 @@
   },
   "last_digest": "2026-11-28",
   "last_errors": {},
-  "last_success": "2026-11-28T10:31:01Z",
+  "last_success": "2026-11-28T11:01:19Z",
   "lows": {
     "best_trip": 93130,
     "cheapest_any": 96772,
@@ -73,10 +73,10 @@
     "rt_nonstop_fit": 93130
   },
   "pending_rise": {
-    "cheapest_any": 113534,
     "out_any_fit": 66282,
     "out_ideal": 69780,
+    "ret_any_fit": 56438,
     "rt_nonstop_fit": 96904
   },
-  "runs": 596
+  "runs": 597
 }
