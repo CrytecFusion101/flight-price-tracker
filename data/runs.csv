@@ -574,3 +574,4 @@ ts,src,status,options,failed
 2026-11-28T05:30:58Z,cron-job,ok,16,
 2026-11-28T06:01:13Z,cron-job,ok,6,
 2026-11-28T06:30:56Z,cron-job,failed,0,
+2026-11-28T06:33:27Z,retry,failed,0,
